@@ -1,13 +1,13 @@
-# Hooked Web3 Provider
+# Hooked Webu Provider
 
-The Hooked Web3 Provider is a normal HTTP Web3 provider that allows you to "hook in" an external transaction signer that can be used to sign transactions for accounts not managed by the Ethereum client (i.e., aren't managed by `geth`). An example transaction signer might be an external program or device that manages its own accounts and private keys. Together, the transaction signer and the web3 provider will use the Ethereum client to place signed transactions on the network.
+The Hooked Webu Provider is a normal HTTP Webu provider that allows you to "hook in" an external transaction signer that can be used to sign transactions for accounts not managed by the Ethereum client (i.e., aren't managed by `geth`). An example transaction signer might be an external program or device that manages its own accounts and private keys. Together, the transaction signer and the webu provider will use the Ethereum client to place signed transactions on the network.
 
 The goal of this library is to successfully modularize all the moving parts related to external transaction signing, to improve usability and encourage a separation of concerns.
 
 ### Install
 
 ```
-npm install hooked-web3-provider
+npm install hooked-webu-provider
 ``` 
 
 ### Use
@@ -15,19 +15,19 @@ npm install hooked-web3-provider
 First, include the package. In Node:
 
 ```
-var HookedWeb3Provider = require("hooked-web3-provider");
+var HookedWebuProvider = require("hooked-webu-provider");
 ```
 
 Or the Browser:
 
 ```
-<script type="text/javascript" src="./build/hooked-web3-provider.js"></script>
+<script type="text/javascript" src="./build/hooked-webu-provider.js"></script>
 ```
 
 Then, instantiate the provider:
 
 ```
-var provider = new HookedWeb3Provider({
+var provider = new HookedWebuProvider({
   host: "http://localhost:8545",
   transaction_signer: { 
     // Can be any object that implements the following methods:
@@ -61,7 +61,7 @@ Asynchronous method used to sign a transaction. This method will only be called 
 
 **Example Transaction Parameters: tx_params**
 
-Note that proper transaction parameters are those used by web3 in its RPC interface. All values are hexadecimal, and are prefixed with "0x".
+Note that proper transaction parameters are those used by webu in its RPC interface. All values are hexadecimal, and are prefixed with "0x".
 
 ```
 {
@@ -95,7 +95,7 @@ To develop and contribute to this project, first install Truffle:
 $ npm install -g truffle
 ```
 
-Then edit `./app/hooked-web3-provider.es6`, and run:
+Then edit `./app/hooked-webu-provider.es6`, and run:
 
 ```
 cd ./checkout/of/repository

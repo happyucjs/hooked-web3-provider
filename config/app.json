@@ -1,13 +1,13 @@
 {
   "build": {
     // The main library file.
-    "hooked-web3-provider.js": "hooked-web3-provider.es6",
+    "hooked-webu-provider.js": "hooked-webu-provider.es6",
 
     // Note, the first one will be processed before this one,
     // so we can refer to the built file.
-    "hooked-web3-provider.min.js": {
+    "hooked-webu-provider.min.js": {
       "files": [
-        "../build/hooked-web3-provider.js"
+        "../build/hooked-webu-provider.js"
       ],
       "post-process": [
         "uglify"
@@ -19,7 +19,7 @@
       "../node_modules/jquery/dist/jquery.min.js",
       "../node_modules/bignumber.js/bignumber.js",
       "../node_modules/ethereumjs-accounts/dist/ethereumjs-accounts.js",
-      "hooked-web3-provider.es6"
+      "hooked-webu-provider.es6"
     ],
     "index.html": "index.html"
   },

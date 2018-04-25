@@ -6,7 +6,7 @@
   <script type="text/javascript" src="./app.js"></script>
 </head>
 <body>
-  <h1>Hooked Web3 Provider tester</h1>
+  <h1>Hooked Webu Provider tester</h1>
   <p>
     Send 1 Ether between accounts registered both in the client and in the browser. As new accounts are chosen balances will be updated.
     <br>
@@ -24,7 +24,7 @@
 
   <label>From</label>
   <select id="from_account">
-    <optgroup class="in_client" label="Registered in Client (web3)">
+    <optgroup class="in_client" label="Registered in Client (webu)">
     </optgroup>
     <optgroup class="in_browser" label="Registered in Browser (ethereumjs-accounts)">
     </optgroup>
@@ -35,7 +35,7 @@
 
   <label>To</label>
   <select id="to_account">
-    <optgroup class="in_client" label="Registered in Client (web3)">
+    <optgroup class="in_client" label="Registered in Client (webu)">
     </optgroup>
     <optgroup class="in_browser" label="Registered in Browser (ethereumjs-accounts)">
     </optgroup>
@@ -63,11 +63,11 @@
     $(document).on("ready", function() {
       var accounts = new Accounts({minPassphraseLength: 6});
       window.accounts = accounts; // For debugging.
-      var provider = new HookedWeb3Provider({
+      var provider = new HookedWebuProvider({
         host: "http://localhost:8545",
         transaction_signer: accounts // transaction_signer must implement signTransaction() and hasAddress()
       });
-      web3.setProvider(provider);
+      webu.setProvider(provider);
 
       var from_account = $("#from_account");
       var to_account = $("#to_account");
@@ -88,20 +88,20 @@
       };
 
       var updateBalances = function() {
-        web3.eth.getBalance(from_account.val(), function(err, balance) {
+        webu.eth.getBalance(from_account.val(), function(err, balance) {
           // Use our BigNumber config.
           var b = new BigNumber(balance);
           $("#from_balance").html(b.toString());
         });
 
-        web3.eth.getBalance(to_account.val(), function(err, balance) {
+        webu.eth.getBalance(to_account.val(), function(err, balance) {
           // Use our BigNumber config.
           var b = new BigNumber(balance);
           $("#to_balance").html(b.toString());
         });
       };
 
-      web3.eth.getAccounts(function(err, in_client) {
+      webu.eth.getAccounts(function(err, in_client) {
         for (var i = 0; i < in_client.length; i++) {
           var address = in_client[i];
           addAddress(from_account.find(".in_client"), address);
@@ -135,7 +135,7 @@
         from_address = from_account.val();
         to_address = to_account.val();
 
-        web3.eth.sendTransaction({
+        webu.eth.sendTransaction({
           from: from_address,
           to: to_address,
           value: 1000000000000000000,
